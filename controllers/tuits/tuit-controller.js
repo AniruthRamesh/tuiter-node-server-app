@@ -19,10 +19,10 @@ const createTuit = async (req, res) => {
 }
 
 const findTuits  = async (req, res) => {
-  console.log("reached controller");
+  //console.log("reached controller");
   const tuits = await tuitsDao.findTuits();
     res.json(tuits);
-    console.log(tuits);
+    //console.log(tuits);
 }
 
 const updateTuit = async (req, res) => {

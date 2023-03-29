@@ -1,11 +1,20 @@
 import tuitsModel from './tuits-model.js';
-export const findTuits = () => {
-    console.log("reached DAO");
-    tuitsModel.find();
+export const findTuits = async () => {
+    //console.log("reached DAO");
+    const tuits = await tuitsModel.find();
+    return tuits;
+
 }
-export const createTuit = (tuit) => {
-    console.log("creating tweet")
-    tuitsModel.create(tuit);
+export const createTuit = async (tuit) => {
+    //console.log("creating tweet")
+    const insertedTuit = tuitsModel.create(tuit);
+    return insertedTuit;
 }
-export const deleteTuit = (tid) => tuitsModel.deleteOne({_id: tid});
-export const updateTuit = (tid, tuit) => tuitsModel.updateOne({_id: tid}, {$set: tuit});
+export const deleteTuit = (tid) => {
+    const result  = tuitsModel.deleteOne({_id: tid});
+    return result;
+}
+export const updateTuit = (tid, tuit) => {
+    const result = tuitsModel.updateOne({_id: tid}, {$set: tuit});
+    return result;
+}
