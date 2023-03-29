@@ -9,7 +9,13 @@ import mongoose from "mongoose"
 
 const app = express()
 
-app.use(cors());
+const allowedOrigins = ['*']; // Allow access from any origin
+const allowedMethods = ['GET', 'POST', 'PUT', 'DELETE']; // Allow all CRUD methods
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: allowedMethods
+}));
 app.use(express.json());
 
 helloController(app)
@@ -22,6 +28,7 @@ mongoose.connect(CONNECTION_STRING);
   console.log("mongoDB connected");
 }
 connection();
+
 app.listen(process.env.PORT || 4000)
 
 
