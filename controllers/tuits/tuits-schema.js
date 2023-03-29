@@ -20,9 +20,5 @@ const schema =  mongoose.Schema({
     dislikes: Number,
     disliked: Boolean
 
-}, {collection: 'tuits',writeConcern: {
-    w: 'majority',
-    j: true,
-    wtimeout: 1000
-  }});
+}, {collection: 'tuits'});
 export default schema;
