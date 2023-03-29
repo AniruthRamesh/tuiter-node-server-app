@@ -9,13 +9,9 @@ import mongoose from "mongoose"
 
 const app = express()
 
-const allowedOrigins = ['*']; // Allow access from any origin
-const allowedMethods = ['GET', 'POST', 'PUT', 'DELETE']; // Allow all CRUD methods
 
-app.use(cors({
-  origin: allowedOrigins,
-  methods: allowedMethods
-}));
+
+app.use(cors());
 app.use(express.json());
 
 helloController(app)
